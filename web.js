@@ -11,10 +11,11 @@ var file = fs.readFile('index.html', function (err, data) {
 });
 */
 
+var index = fs.readFileSync('index.html');
+
 app.get('/', function(request, response) {
   fs.read('index.html', function (err, data) {                                                             
-    if (err) throw err;                                                                                                    var buf = new Buffer(data, 'utf8');
-    response.send(buf.toString());
+    if (err) throw err;                                                                                                    response.send(index.toString());
     //response.send('Hello World 2!');
   });
 });
